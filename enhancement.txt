@@ -1,0 +1,19 @@
+Adding a display of the job state to JobViewPanel.
+
+To be able to display the current job state, we added a new class called “JobStatePanel” which extends JPanel. 
+Since we are interested in the current job, we needed the CPU as a field. 
+We also created a JTextField object in order to display the job state as a text.
+
+Since we inherited from the JPanel, we did call the super constructor with a GridLayout object, which provided us a row for the display. 
+We added the label “Job State” and the text field to the panel as well. 
+What we also needed was to write an update method to get the current job from the cpu and set the colors accordingly:
+NOTHING_LOADED = white (default), 
+PROGRAM_LOADED = green, 
+PROGRAM_HALTED = red.
+
+After we tested the JobStatePanel with a main function in the same class and made sure that it would work, 
+we added it to the JobViewPanel’s actionPanel component so that it could appear right under the SliderPanel. 
+We also invoked the update method that we wrote in the jobViewPanel’s update method so that the stateViewPanel could be updated whenever the update method was called.
+We did not have to make changes to the PippinGUI, because the stateViewPanel would be automatically created when the JobViewPanel was instantiated in the PippinGUI class. 
+
+By making this change, we attempt to visualize the state of the current job and make it easier to follow the job states for the user. 
